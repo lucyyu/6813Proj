@@ -10,9 +10,6 @@
 }
 
 /* Figure */
-.figureContainer{
-	height: 100px;
-}
 
 
 /* Products */
@@ -31,3 +28,17 @@
 .productBtn:hover{
 	background-color: #D1D1D1;
 }
+
+/* Price Label */
+#priceLabel {	
+	color: #6E6E6E;
+	width: 60%;
+	padding:15px 0px;
+	text-align: center;
+	margin-top: 60px;
+	font-size: 18px;
+	background-image: url('../img/blue_background.jpg');
+	border-radius: 5px;
+	font-family: 'Varela Round', sans-serif;
+}
+

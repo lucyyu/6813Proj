@@ -5,21 +5,34 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/main.css">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 
 
 		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var canvas = document.getElementById("paddleCanvas");
+                var context = canvas.getContext("2d");
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+				var image = document.getElementById("paddleImg");
+	            context.drawImage(image, 0, 0, 450, 450);
+	            image.style.display = "none"; 
+
+			})
+		</script>
 	</head>
 	<body>
 		<div class="outlinebox header">Header</div>
 
 		<div class="container">
 			<div class="row">
-			  <div class="col-md-5 col-md-offset-1 outlinebox">
-			  	<div class="figureContainer">
-			  		Ping Pong Paddle Figure
-			  	</div>
+			  <div class="col-md-5 col-md-offset-1">
+			  		<canvas id="paddleCanvas" width="450" height="450" style="border:1px solid #d3d3d3;">
+                    Your browser does not support the HTML5 canvas tag.</canvas>
 			  </div>
 			  <div class="col-md-5">
 			  	<div class="productBtn" data-toggle="modal" data-target="#myModal">
@@ -30,6 +43,9 @@
 			  	</div>
 			  	<div class="productBtn" data-toggle="modal" data-target="#myModal">
 			  		Glue
+			  	</div>
+			  	<div id="priceLabel">
+			  		Budget Remaining: $150
 			  	</div>
 			  </div>
 			</div>
@@ -53,6 +69,10 @@
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
+
+		<div>
+			<img id="paddleImg" src="img/paddle.png" />
+		</div>
 
 
 	</body>
