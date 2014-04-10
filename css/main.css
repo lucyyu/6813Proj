@@ -1,0 +1,23 @@
+.outlinebox{
+	border: 1px black solid;
+}
+
+/* Header */
+.header{
+	width: 100%;
+	margin-bottom:60px;
+	height:70px;
+}
+
+/* Figure */
+.figureContainer{
+	height: 100px;
+}
+
+
+/* Products */
+.productBtn{
+	width: 60%;
+	height: 100px;
+	margin
+}

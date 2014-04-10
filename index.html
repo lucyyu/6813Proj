@@ -1,8 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Index</title>
-</head>
-<body>
-</body>
+	<head>
+		<title>Index</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/main.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+		<div class="outlinebox header">Header</div>
+
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-5 col-md-offset-1 outlinebox">
+			  	<div class="figureContainer">
+			  		Ping Pong Paddle Figure
+			  	</div>
+			  </div>
+			  <div class="col-md-5">
+			  	<div class="productBtn outlinebox">
+			  		Blade
+			  		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+						Launch demo modal
+					</button>
+			  	</div>
+			  	<div class="productBtn outlinebox">
+			  		Rubber
+			  	</div>
+			  	<div class="productBtn outlinebox">
+			  		Glue
+			  	</div>
+			  </div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">Modal title</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>One fine body&hellip;</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+
+	</body>
 </html>
