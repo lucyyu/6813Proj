@@ -9,10 +9,18 @@
 	height:70px;
 }
 
+/*Figure*/
+#paddleCanvas {
+	position: absolute;
+	border:5px double #E3E3E3;
+}
+
 /* Diamond */
 #diamondCanvas {
 	position: absolute;
-	
+	top: 260px;
+	left:260px;
+	/*border:2px #87AFC7 solid;*/
 }
 
 

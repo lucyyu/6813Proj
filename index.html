@@ -29,7 +29,7 @@
 	            var canvas_d = document.getElementById("diamondCanvas"); 
 	            var context_d = canvas_d.getContext("2d"); 
 
-	            var radius = 100;
+	            var radius = 80;
 	            var slice_angle = 2*Math.PI/5;
 
 	            context_d.save(); 
@@ -39,7 +39,7 @@
 	            var gradient = context_d.createLinearGradient(0, 0, radius*Math.cos(slice_angle/2), 0);
 
 	            gradient.addColorStop(0, "white");
-	            gradient.addColorStop(1, "gray"); 
+	            gradient.addColorStop(1, "#95B9C7"); 
 
 	            context_d.fillStyle = gradient; 
 
@@ -73,9 +73,9 @@
 		<div class="container">
 			<div class="row">
 			  <div class="col-md-5 col-md-offset-1">
-			  		<canvas id="paddleCanvas" width="450" height="450" style="border:5px double #E3E3E3;">
+			  		<canvas id="paddleCanvas" width="450" height="450">
                     Your browser does not support the HTML5 canvas tag.</canvas>
-                    <canvas id="diamondCanvas" width="250" height="250" style="border:5px double #E3E3E3;">
+                    <canvas id="diamondCanvas" width="220" height="220">
                     Your browser does not support the HTML5 canvas tag.</canvas>
 			  </div>
 			  <div class="col-md-5">
