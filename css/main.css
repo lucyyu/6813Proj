@@ -9,7 +9,11 @@
 	height:70px;
 }
 
-/* Figure */
+/* Diamond */
+#diamondCanvas {
+	position: absolute;
+	
+}
 
 
 /* Products */
