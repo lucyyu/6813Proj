@@ -42,3 +42,33 @@
 	font-family: 'Varela Round', sans-serif;
 }
 
+.modal-body {
+	height: 300px;
+	overflow: scroll;
+}
+
+.modal-body .item {
+	height: 100px;
+	border: 1px solid gray;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.modal-body .item:hover {
+	background-color: #D1D1D1;
+}
+
+.modal-body .item img {
+	margin: 10px;
+	height: 80px;
+	float: left;
+	border: 1px solid gray;
+}
+
+.modal-body .item .select-btn {
+	margin-right: 10px;
+	float: right;
+}
+
+
+
