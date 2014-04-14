@@ -6,10 +6,14 @@
 .header{
 	width: 100%;
 	margin-bottom:60px;
-	font-size:20px;
-	padding-top:10px;
-	padding-bottom:10px;
+	font-size:30px;
+	padding-top:15px;
+	padding-bottom:15px;
 	text-align: center;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	background-color: #F2F2F2;
+	color: #5C5C5C;
 }
 
 /* Figure */
@@ -25,7 +29,8 @@
 	font-size: 26px;
 	background-color: #E3E3E3;
 	border-radius: 5px;
-	font-family: 'Varela Round', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-weight:300;
 }
 
 .productBtn:hover{
