@@ -18,13 +18,75 @@
 
 		<script type="text/javascript">
 			$(document).ready(function(){
-				var canvas = document.getElementById("paddleCanvas");
-                var context = canvas.getContext("2d");
-                context.clearRect(0, 0, canvas.width, canvas.height);
+				//draw paddle
+				var canvas_p = document.getElementById("paddleCanvas");
+                var context_p = canvas_p.getContext("2d");
+                context_p.clearRect(0, 0, canvas_p.width, canvas_p.height);
 
-				var image = document.getElementById("paddleImg");
-	            context.drawImage(image, 0, 0, 450, 450);
-	            image.style.display = "none"; 
+	            var img = new Image();
+	            img.onload = function(){
+	            	context_p.drawImage(img, 0, 0, 450, 450);
+	            }
+	            img.src = "img/paddle.png"; 
+
+	            //draw diamond as a combination of 5 triangles
+	            var canvas_d = document.getElementById("diamondCanvas"); 
+	            var context_d = canvas_d.getContext("2d"); 
+
+	            var radius = 80;
+	            var slice_angle = 2*Math.PI/5;
+
+	            context_d.save(); 
+	            context_d.translate(canvas_d.width/2, canvas_d.height/2);
+	            context_d.rotate(-Math.PI/180*54);
+
+	            var gradient = context_d.createLinearGradient(0, 0, radius*Math.cos(slice_angle/2), 0);
+
+	            gradient.addColorStop(0, "white");
+	            gradient.addColorStop(1, "#B6B6B4"); 
+
+	            context_d.fillStyle = gradient; 
+	            context_d.strokeStyle = "black"; 
+
+	            context_d.beginPath();
+	            context_d.moveTo(0, 0);
+	            context_d.lineTo(radius*Math.cos(slice_angle/2), radius*Math.sin(slice_angle/2));
+	            context_d.lineTo(radius*Math.cos(-slice_angle/2), radius*Math.sin(-slice_angle/2));
+	            context_d.closePath();
+	            context_d.fill();
+	            context_d.stroke(); 
+
+	            for (var i=0; i<4; i++){
+
+		            context_d.rotate(-Math.PI/180*72);
+
+		            context_d.beginPath();
+		            context_d.moveTo(0, 0);
+		            context_d.lineTo(radius*Math.cos(slice_angle/2), radius*Math.sin(slice_angle/2));
+		            context_d.lineTo(radius*Math.cos(-slice_angle/2), radius*Math.sin(-slice_angle/2));
+		            context_d.closePath();
+		            context_d.fill();
+		            context_d.stroke(); 
+		        }
+
+		        context_d.restore(); 
+
+		        //draw performance parameters
+		        var params = {speed:0.8, spin:0.7, control:1, weight:0.95, price:0.85}; 
+		        var keys = Object.keys(params); 
+
+		        var current_angle = Math.PI*54/180;
+		        context_d.translate(canvas_d.width/2, canvas_d.height/2); 
+
+		        context_d.beginPath();
+		        context_d.moveTo(radius*params['speed']*Math.cos(current_angle), radius*params['speed']*Math.sin(current_angle));
+		        for (var i = 1; i < 5; i++) {
+		        	current_angle += Math.PI*72/180; 
+		        	context_d.lineTo(radius*params[keys[i]]*Math.cos(current_angle), radius*params[keys[i]]*Math.sin(current_angle));
+		        }
+		        context_d.closePath(); 
+		        context_d.fillStyle = "rgba(132,132,130,0.3)";
+		        context_d.fill(); 
 
 			})
 		</script>
@@ -36,6 +98,8 @@
 			<div class="row">
 			  <div class="col-md-5 col-md-offset-1">
 			  		<canvas id="paddleCanvas" width="450" height="450">
+                    Your browser does not support the HTML5 canvas tag.</canvas>
+                    <canvas id="diamondCanvas" width="220" height="220">
                     Your browser does not support the HTML5 canvas tag.</canvas>
 			  </div>
 			  <div class="col-md-5">
@@ -98,10 +162,6 @@
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
-
-		<div>
-			<img id="paddleImg" src="img/paddle.png" />
-		</div>
 
 
 	</body>

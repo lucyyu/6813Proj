@@ -16,7 +16,19 @@
 	color: #5C5C5C;
 }
 
-/* Figure */
+/*Figure*/
+#paddleCanvas {
+	position: absolute;
+	border:0px solid #E3E3E3;
+}
+
+/* Diamond */
+#diamondCanvas {
+	position: absolute;
+	top: 260px;
+	left:260px;
+	border:0px #87AFC7 solid;
+}
 
 
 /* Products */
