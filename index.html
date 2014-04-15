@@ -23,11 +23,34 @@
                 var context_p = canvas_p.getContext("2d");
                 context_p.clearRect(0, 0, canvas_p.width, canvas_p.height);
 
-	            var img = new Image();
-	            img.onload = function(){
-	            	context_p.drawImage(img, 0, 0, 450, 450);
+	            var raw_paddle_img = new Image();
+	            raw_paddle_img.onload = function(){
+	            	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450);
 	            }
-	            img.src = "img/paddle.png"; 
+	            raw_paddle_img.src = "img/paddle.png"; 
+
+	            //highting the component upon hovering 
+	            $("#rubberBtn").mouseenter(function(){
+	                var core_img = new Image();
+		            core_img.src = "img/core_highlight.png"; 
+		            context_p.drawImage(core_img, 60, -30, 423, 400);
+
+	            }).mouseleave(function(){
+	            	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
+	            	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450); 
+	            });
+
+	            $("#bladeBtn").mouseenter(function(){
+	                var core_img = new Image();
+		            core_img.src = "img/blade_highlight.png"; 
+		            context_p.drawImage(core_img, 13, 15, 435, 435);
+
+	            }).mouseleave(function(){
+	            	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
+	            	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450); 
+	            });
+
+
 
 	            //draw diamond as a combination of 5 triangles
 	            var canvas_d = document.getElementById("diamondCanvas"); 
@@ -103,13 +126,13 @@
                     Your browser does not support the HTML5 canvas tag.</canvas>
 			  </div>
 			  <div class="col-md-5">
-			  	<div class="productBtn" data-toggle="modal" data-target="#myModal">
+			  	<div class="productBtn" id="bladeBtn" data-toggle="modal" data-target="#myModal">
 			  		BLADE
 			  	</div>
-			  	<div class="productBtn" data-toggle="modal" data-target="#myModal">
+			  	<div class="productBtn" id="rubberBtn" data-toggle="modal" data-target="#myModal">
 			  		RUBBER
 			  	</div>
-			  	<div class="productBtn" data-toggle="modal" data-target="#myModal">
+			  	<div class="productBtn" id="glueBtn" data-toggle="modal" data-target="#myModal">
 			  		GLUE
 			  	</div>
 			  	<div id="priceLabel">
