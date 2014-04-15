@@ -33,6 +33,7 @@
 
 /* Products */
 .productBtn{
+	cursor: pointer;
 	color: #6E6E6E;
 	width: 60%;
 	padding:30px 0px;
