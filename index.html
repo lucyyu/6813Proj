@@ -31,9 +31,13 @@
 
 	            //highting the component upon hovering 
 	            $("#rubberBtn").mouseenter(function(){
+	            	//NOTE: http://stackoverflow.com/questions/12387310/html5-drawimage-works-in-firefox-not-chrome
+	            	//looks like this is one of the few drawImage method that would work in both chrome and firefox
 	                var core_img = new Image();
 		            core_img.src = "img/core_highlight.png"; 
-		            context_p.drawImage(core_img, 60, -30, 423, 400);
+		            core_img.onload = function(){
+		                context_p.drawImage(core_img, 60, -30, 423, 400);
+		            }
 
 	            }).mouseleave(function(){
 	            	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
@@ -41,9 +45,11 @@
 	            });
 
 	            $("#bladeBtn").mouseenter(function(){
-	                var core_img = new Image();
-		            core_img.src = "img/blade_highlight.png"; 
-		            context_p.drawImage(core_img, 13, 15, 435, 435);
+	                var blade_img = new Image();
+		            blade_img.src = "img/blade_highlight.png"; 
+		            blade_img.onload = function() {
+		                context_p.drawImage(blade_img, 13, 15, 435, 435);
+		            }
 
 	            }).mouseleave(function(){
 	            	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
