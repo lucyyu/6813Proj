@@ -58,9 +58,10 @@
 	text-align: center;
 	margin-top: 73px;
 	font-size: 18px;
-	background-image: url('../img/blue_background.jpg');
 	border-radius: 5px;
-	font-family: 'Varela Round', sans-serif;
+	font-family: 'Lato', sans-serif;
+	background-color: #D6D6D6;
+	font-weight:300;
 }
 
 .modal-body {
