@@ -21,33 +21,36 @@
 	<body>
 		<div class="header">TABLE TENNIS PRO</div>
 
-		<div class="container">
-			<div class="row">
-			  <div class="col-md-5 col-md-offset-1">
+		<div class="bodydiv">
+			<div class="content">
+			  	<div class="paddlecontainer">
 			  		<canvas id="paddleCanvas" width="450" height="450">
                     Your browser does not support the HTML5 canvas tag.</canvas>
-                    <canvas id="diamondCanvas" width="250" height="250">
+                    <canvas id="diamondCanvas" width="250" height="200">
                     Your browser does not support the HTML5 canvas tag.</canvas>
-			  </div>
-			  <div class="col-md-5">
-			  	<div class="productBtn" id="bladeBtn" data-toggle="modal" data-target="#blade-modal">
-			  		BLADE
 			  	</div>
-			  	<div class="productBtn" id="rubberBtn" data-toggle="modal" data-target="#rubber-modal">
-			  		RUBBER
+			  	<div class="buttoncontainer">
+
+			  		<div class="productBtn" id="bladeBtn" data-toggle="modal" data-target="#blade-modal">BLADE
+			  			<div id="blade-summary" class="summary"></div>
+			  		</div>
+
+
+				  	<div class="productBtn" id="rubberBtn" data-toggle="modal" data-target="#rubber-modal">RUBBER
+				  		<div id="rubber-summary"></div>
+				  	</div>
+
+
+				  	<div class="productBtn" id="glueBtn" data-toggle="modal" data-target="#glue-modal">GLUE
+				  		<div id="glue-summary"></div>
+				  	</div>
+
+				  	<div id="priceLabel">
+				  		Total: $<span id="total-price">0</span>
+				  	</div>
 			  	</div>
-			  	<div class="productBtn" id="glueBtn" data-toggle="modal" data-target="#glue-modal">
-			  		GLUE
-			  	</div>
-			  	<div id="priceLabel">
-			  		Total: $<span id="total-price">0</span>
-			  	</div>
-			  </div>
 			</div>
 		</div>
-		<div id="blade-summary"></div>
-		<div id="rubber-summary"></div>
-		<div id="glue-summary"></div>
 
 
 		<div class="modal fade" id="blade-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -57,10 +60,7 @@
 		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title">Blade</h4>
 		      </div>
-		      <div class="modal-body" id="blade-modal-body">
-		      	
-		      </div>
-		      <div class="modal-footer">
+		      <div class="modal-body" id="blade-modal-body">	
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -73,10 +73,7 @@
 		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title">Rubber</h4>
 		      </div>
-		      <div class="modal-body" id="rubber-modal-body">
-		      	
-		      </div>
-		      <div class="modal-footer">
+		      <div class="modal-body" id="rubber-modal-body">		      	
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -89,10 +86,7 @@
 		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title">Glue</h4>
 		      </div>
-		      <div class="modal-body" id="glue-modal-body">
-		      	
-		      </div>
-		      <div class="modal-footer">
+		      <div class="modal-body" id="glue-modal-body">	      	
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->

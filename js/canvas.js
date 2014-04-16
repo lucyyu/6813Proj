@@ -14,7 +14,7 @@ function paintCanvas(){
     	//NOTE: http://stackoverflow.com/questions/12387310/html5-drawimage-works-in-firefox-not-chrome
     	//looks like this is recommendated drawImage() method that would work in both Chrome and Firefox
         var core_img = new Image();
-        core_img.src = "img/core_highlight.png"; 
+        core_img.src = "img/core_highlight_bw.png"; 
         core_img.onload = function(){
             context_p.drawImage(core_img, 60, -30, 423, 400);
         }
@@ -25,7 +25,7 @@ function paintCanvas(){
 
     $("#bladeBtn").mouseenter(function(){
         var blade_img = new Image();
-        blade_img.src = "img/blade_highlight.png"; 
+        blade_img.src = "img/blade_highlight_bw.png"; 
         blade_img.onload = function() {
             context_p.drawImage(blade_img, 13, 15, 435, 435);
         }
@@ -36,7 +36,7 @@ function paintCanvas(){
 
     $("#glueBtn").mouseenter(function(){
         var glue_img = new Image();
-        glue_img.src = "img/glue_highlight.png"; 
+        glue_img.src = "img/glue_highlight_bw.png"; 
         glue_img.onload = function() {
             context_p.drawImage(glue_img, 50, -53, 435, 435);
         }
@@ -51,7 +51,7 @@ function paintCanvas(){
     var params = {speed:0.8, spin:0.7, control:1, weight:0.95, price:0.85}; 
 
     //COLOR CODE: speed: green, spin: blue, control: orange, weight: olive, price: black
-    var variable_colors = {speed: "green", spin: "blue", control: "orange", weight: "olive", price: "red"};		        
+    var variable_colors = {speed: "#363636", spin: "#363636", control: "#363636", weight: "#363636", price: "#363636"};		        
 
     var keys = Object.keys(params); 
     var canvas_d = document.getElementById("diamondCanvas"); 
