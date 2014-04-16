@@ -60,6 +60,7 @@ var paddle = function () {
         my_blade = blade;
         $('#blade-summary').text(blade.name + ", " + blade.price + ", " + blade.brand + ", " + blade.category);
         recalculate_price();
+        paintCanvas(); 
       });
     });
 
@@ -71,6 +72,7 @@ var paddle = function () {
         my_glue = glue;
         $('#glue-summary').text(glue.name + ", " + glue.price + ", " + glue.brand + ", " + glue.category);
         recalculate_price();
+        paintCanvas(); 
       });
     });
 
@@ -82,6 +84,7 @@ var paddle = function () {
         my_rubber = rubber;
         $('#rubber-summary').text(rubber.name + ", " + rubber.price + ", " + rubber.brand + ", " + rubber.category);
         recalculate_price();
+        paintCanvas(); 
       });
     });
   };
