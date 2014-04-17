@@ -114,7 +114,6 @@ function paintCanvas(){
         }	
         context_d.restore();      
 
-        updateOpponentInfo();   
     }		        
 }
 
@@ -225,30 +224,6 @@ function drawTextLabel(canvas, parameters, colors, isAllComponentSelected){
             context_d.fillText(price_text, 83, -5);       
         }
         context_d.restore(); 
-}
-
-function updateOpponentInfo(){
-    $("#opponentInfo").text("Paddle performance against specific opponents:")
-    var opponent_1_star_num = Math.round(Math.random()*5);
-    var opponent_1_str = "Handshake Control: " + Array(opponent_1_star_num+1).join("★") + Array(6 - opponent_1_star_num).join("☆");
-    $('<p>', {
-        class: 'opponentEntry',
-        text: opponent_1_str,
-    }).appendTo('#opponentInfo');
-
-    var opponent_2_star_num = Math.round(Math.random()*5);
-    var opponent_2_str = "Backhand Offensive: " + Array(opponent_2_star_num+1).join("★") + Array(6 - opponent_2_star_num).join("☆");
-    $('<p>', {
-        class: 'opponentEntry',
-        text: opponent_2_str,
-    }).appendTo('#opponentInfo');
-
-    var opponent_3_star_num = Math.round(Math.random()*5);
-    var opponent_3_str = "Backspin Defensive: " + Array(opponent_3_star_num+1).join("★") + Array(6 - opponent_3_star_num).join("☆");
-    $('<p>', {
-        class: 'opponentEntry',
-        text: opponent_3_str,
-    }).appendTo('#opponentInfo');
 }
 
 $(document).ready(paintCanvas);
