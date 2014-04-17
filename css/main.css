@@ -50,7 +50,7 @@ body{
 
 /* Diamond */
 #diamondCanvas {
-	right:-50px;
+	right:0px;
 	bottom:0px;
 	position:absolute;
 	border:0px #87AFC7 solid;
