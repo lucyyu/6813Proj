@@ -63,7 +63,6 @@ function paintCanvas(){
     if ($("#blade-summary").text() && $("#rubber-summary").text() && $("#glue-summary").text()){
         //TODO: change params based on price
         var current_price = parseInt($("#priceLabel").text().slice(17));
-        console.log(current_price); 
         if (current_price < 100){
             params = {speed:0.65, spin:0.65, control:0.7, weight:0.5, price:0.5}; 
         }else if (current_price >= 100 && current_price < 133){
@@ -108,7 +107,9 @@ function paintCanvas(){
         	context_d.fillStyle = variable_colors[Object.keys(variable_colors)[i]];
         	context_d.fill();  
         }	
-        context_d.restore();         
+        context_d.restore();      
+
+        //updateOpponentInfo();   
     }		        
 }
 
@@ -196,7 +197,7 @@ function drawTextLabel(canvas, parameters, colors, isAllComponentSelected){
             var spin_val = parameters.spin;
             var spin_text = "Spin: "+ (spin_val>=0.75?"fast":"medium");
             context_d.fillStyle = colors.spin;
-            context_d.fillText(spin_text, -60, 80);
+            context_d.fillText(spin_text, -90, 80);
 
             //control
             var control_val = parameters.control;
@@ -209,7 +210,7 @@ function drawTextLabel(canvas, parameters, colors, isAllComponentSelected){
             var weight_val = parameters.weight;
             var weight_text = "Weight: " + (weight_val>=0.75?"heavy":"light");
             context_d.fillStyle = colors.weight;
-            context_d.fillText(weight_text, -20, -85);
+            context_d.fillText(weight_text, -30, -85);
 
             //price
             var price_val = parameters.price;
@@ -219,6 +220,30 @@ function drawTextLabel(canvas, parameters, colors, isAllComponentSelected){
             context_d.fillText(price_text, 83, -5);       
         }
         context_d.restore(); 
+}
+
+function updateOpponentInfo(){
+    $("#opponentInfo").text("Paddle performance against specific opponents:")
+    var opponent_1_star_num = Math.round(Math.random()*5);
+    var opponent_1_str = "Handshake Control: " + Array(opponent_1_star_num+1).join("★") + Array(6 - opponent_1_star_num).join("☆");
+    $('<p>', {
+        class: 'opponentEntry',
+        text: opponent_1_str,
+    }).appendTo('#opponentInfo');
+
+    var opponent_2_star_num = Math.round(Math.random()*5);
+    var opponent_2_str = "Backhand Offensive: " + Array(opponent_2_star_num+1).join("★") + Array(6 - opponent_2_star_num).join("☆");
+    $('<p>', {
+        class: 'opponentEntry',
+        text: opponent_2_str,
+    }).appendTo('#opponentInfo');
+
+    var opponent_3_star_num = Math.round(Math.random()*5);
+    var opponent_3_str = "Backspin Defensive: " + Array(opponent_3_star_num+1).join("★") + Array(6 - opponent_3_star_num).join("☆");
+    $('<p>', {
+        class: 'opponentEntry',
+        text: opponent_3_str,
+    }).appendTo('#opponentInfo');
 }
 
 $(document).ready(paintCanvas);
