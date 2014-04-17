@@ -9,11 +9,11 @@ var paddle = function () {
   var create_div = function(img, name, price, brand, category){
     return $('<div class="item" data-dismiss="modal">\n' +
                '<img src="' + img + '" alt="item image">' + 
-               '<span>' + name + '</span><br>' + 
+               '<h3>' + name + '</h3>' + 
                '<span><b>Price</b>: $' + price + '</span><br>' +
                '<span><b>Brand</b>: ' + brand + '</span><br>' +
                '<span><b>Category</b>: ' + category + '</span>' +
-               '<button type="button" class="btn btn-primary select-btn">Choose this one</button>' + 
+               //'<button type="button" class="btn btn-primary select-btn">Choose this one</button>' + 
             '</div>');   
   }
 
@@ -82,7 +82,7 @@ var paddle = function () {
         $("#blade-close").click( function() {
           $('#blade-summary').html("");
           $('#blade-summary').animate({
-            width: 10
+            width: 15
           }, 'fast');
           Paddle.remove_blade();
           Paddle.recalculate_price();
@@ -110,7 +110,7 @@ var paddle = function () {
         $("#glue-close").click( function() {
           $('#glue-summary').html("");
           $('#glue-summary').animate({
-            width: 10
+            width: 15
           }, 'fast');
           Paddle.remove_glue();
           Paddle.recalculate_price();
@@ -138,7 +138,7 @@ var paddle = function () {
         $("#rubber-close").click( function() {
           $('#rubber-summary').html("");
           $('#rubber-summary').animate({
-            width: 10
+            width: 15
           }, 'fast');
           Paddle.remove_rubber();
           Paddle.recalculate_price();
@@ -197,6 +197,8 @@ $(function(){
     range: true,
     min: 0,
     max: 200,
+    step:10,
+
     values: [ 0, 200 ],
     slide: function( event, ui ) {
       $( "#rubber-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
@@ -216,6 +218,7 @@ $(function(){
     range: true,
     min: 0,
     max: 200,
+    step:10,
     values: [ 0, 200 ],
     slide: function( event, ui ) {
       $( "#blade-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
@@ -235,6 +238,7 @@ $(function(){
     range: true,
     min: 0,
     max: 60,
+    step:10,
     values: [ 0, 60 ],
     slide: function( event, ui ) {
       $( "#glue-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
