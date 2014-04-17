@@ -110,7 +110,7 @@ function paintCanvas(){
         }	
         context_d.restore();      
 
-        //updateOpponentInfo();   
+        updateOpponentInfo();   
     }		        
 }
 
