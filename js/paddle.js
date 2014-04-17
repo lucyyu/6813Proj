@@ -62,9 +62,9 @@ var paddle = function () {
 
       div.click(function(){
         my_blade = blade;
-        $('#blade-summary').text(blade.name + ", " + blade.price + ", " + blade.brand + ", " + blade.category);
+        $('#blade-summary').html(blade.name + "<br />$" + blade.price + "<br />" + blade.brand + "<br />" + blade.category);
         $('#blade-summary').animate({
-            width: 170
+            width: 190
         }, 'fast');        
 
         recalculate_price();
@@ -79,9 +79,9 @@ var paddle = function () {
       
       div.click(function(){
         my_glue = glue;
-        $('#glue-summary').text(glue.name + ", " + glue.price + ", " + glue.brand + ", " + glue.category);
+        $('#glue-summary').html(glue.name + "<br />$" + glue.price + "<br />" + glue.brand + "<br />" + glue.category);
         $('#glue-summary').animate({
-            width: 170
+            width: 190
         }, 'fast');
 
         recalculate_price();
@@ -96,9 +96,9 @@ var paddle = function () {
 
       div.click(function(){
         my_rubber = rubber;
-        $('#rubber-summary').text(rubber.name + ", " + rubber.price + ", " + rubber.brand + ", " + rubber.category);
+        $('#rubber-summary').html(rubber.name + "<br />$" + rubber.price + "<br />" + rubber.brand + "<br />" + rubber.category);
         $('#rubber-summary').animate({
-            width: 170
+            width: 190
         }, 'fast');        
 
         recalculate_price();
