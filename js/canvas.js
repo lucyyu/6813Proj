@@ -62,7 +62,17 @@ function paintCanvas(){
     //draw real-time performance parameters based on user selection
     if ($("#blade-summary").text() && $("#rubber-summary").text() && $("#glue-summary").text()){
         //TODO: change params based on price
-        
+        var current_price = parseInt($("#priceLabel").text().slice(17));
+        console.log(current_price); 
+        if (current_price < 100){
+            params = {speed:0.65, spin:0.65, control:0.7, weight:0.5, price:0.5}; 
+        }else if (current_price >= 100 && current_price < 133){
+            params = {speed:0.74, spin:0.70, control:0.72, weight:0.5, price:0.65}; 
+        }else if (current_price >= 134 && current_price < 170){
+            params = {speed:0.9, spin:0.85, control:0.74, weight:0.68, price:0.75}; 
+        }else {
+            params = {speed:0.95, spin:0.90, control:0.99, weight:0.67, price:0.97}; 
+        }
         //update text labels
         drawPerformanceDiamondBackground(true); 
 
