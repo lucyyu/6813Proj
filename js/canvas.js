@@ -3,7 +3,7 @@ var params = {speed:0.65, spin:0.65, control:0.7, weight:0.5, price:0.5};
 var keys = Object.keys(params); 
 
 //COLOR CODE: speed: green, spin: blue, control: orange, weight: olive, price: black
-var variable_colors = {speed: "#363636", spin: "#363636", control: "#363636", weight: "#363636", price: "#363636"};     
+var variable_colors = {speed: "#8a8a8a", spin: "#8a8a8a", control: "#8a8a8a", weight: "#8a8a8a", price: "#8a8a8a"};     
 
 var radius = 80;     
 
@@ -98,14 +98,18 @@ function paintCanvas(){
         	pin_pts.push([targetX, targetY]); 
         }
         context_d.closePath(); 
-        context_d.fillStyle = "rgba(132,132,130,0.6)";
+        //context_d.fillStyle = "rgba(132,132,130,0.6)";
+        context_d.fillStyle = "#f1af0f";
+
         context_d.fill(); 
 
         //stroke 5 pins
         for (var i=0; i<pin_pts.length; i++){
         	context_d.beginPath();
         	context_d.arc(pin_pts[i][0], pin_pts[i][1], radius/25, 0, Math.PI*2, false);
-        	context_d.fillStyle = variable_colors[Object.keys(variable_colors)[i]];
+        	//context_d.fillStyle = variable_colors[Object.keys(variable_colors)[i]];
+            context_d.fillStyle = "#cc9000";
+
         	context_d.fill();  
         }	
         context_d.restore();      
@@ -134,7 +138,7 @@ function drawPerformanceDiamondBackground(isAllComponentSelected){
     var gradient = context_d.createLinearGradient(0, 0, radius*Math.cos(slice_angle/2), 0);
 
     gradient.addColorStop(0, "white");
-    gradient.addColorStop(1, "#B6B6B4"); 
+    gradient.addColorStop(1, "#dcdcdc"); 
 
     context_d.fillStyle = gradient; 
     //context_d.strokeStyle = "black"; 
