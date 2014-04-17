@@ -20,20 +20,56 @@ h3{
 
 /* Header */
 .header{
+	position:relative;
 	width: 100%;
 	margin-bottom:40px;
-	font-size:40px;
 	padding-top:5px;
 	padding-bottom:5px;
 	text-align: center;
+	background-color: #3498DB;
+}
+
+.title{
 	font-family: 'Lato', sans-serif;
 	letter-spacing: 3px;
 	font-weight: 900;
-	background-color: #3498DB;
-	color: #c2e1f5;
 	text-shadow: 2px 2px #50809f;
+	color: #c2e1f5;
+	font-size:40px;
 }
 
+.recwrapper{
+	position:absolute;
+	height:100%;
+	top:0px;
+	padding-top:16px;
+	padding-bottom:16px;
+	display:inline-block;
+}
+.recs{
+	display:inline-block;
+	background-color: #b4d6ec;
+	color: #4c748d;
+	font-family: 'Lato', sans-serif;
+	font-size: 14px;
+	padding: 7px 10px;
+	margin-left:40px;
+	border-radius:3px;
+	height:100%;
+}
+
+.recs:hover{
+	cursor: pointer;
+	background-color: #86bbde;
+}
+
+#submitRecBtn{
+	background-color:#27ae60;
+	color: #8fe4b3;
+	font-size: 14px;
+	padding: 7px 10px;
+	border-radius: 3px;
+}
 
 .content{
 	margin: 0 auto;
