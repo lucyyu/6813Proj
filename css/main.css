@@ -48,10 +48,14 @@ body{
 
 /* Diamond */
 #diamondCanvas {
-	right:0px;
+	right:-50px;
 	bottom:0px;
 	position:absolute;
 	border:0px #87AFC7 solid;
+}
+
+#opponentCanvas {
+	border:1px black solid;
 }
 
 
