@@ -18,15 +18,15 @@ var blades = [
     category: "Shakehand"
   },
   {
-    name: "Acoustic Penhold",
-    price: 159.95,
-    brand: "Nittaku",
-    category: "Penhold"
-  },
-  {
     name: "Extra Special Penhold",
     price: 74.95,
     brand: "Butterfly",
+    category: "Penhold"
+  },
+  {
+    name: "Acoustic Penhold",
+    price: 159.95,
+    brand: "Nittaku",
     category: "Penhold"
   },
   {
@@ -39,22 +39,10 @@ var blades = [
 
 var glues = [
   {
-    name: "Lucy's Glue",
-    price: 50.00,
-    brand: "ILoveLucy",
-    category: "Supah Sticky"
-  },
-  {
-    name: "X-Treme Power Boost",
-    price: 29.99,
-    brand: "Avalox",
-    category: "Fast Dry"
-  },
-  {
-    name: "REvolution 3 Glue",
-    price: 49.99,
-    brand: "REvolution 3",
-    category: "Average Sticky"
+    name: "Falco Quick Dry Water Glue",
+    price: 16.99,
+    brand: "Falco",
+    category: "No Stick, No Dry"
   },
   {
     name: "Stiga Optimizer",
@@ -63,31 +51,49 @@ var glues = [
     category: "None"
   },
   {
-    name: "Falco Quick Dry Water Glue",
-    price: 16.99,
-    brand: "Falco",
-    category: "No Stick, No Dry"
+    name: "X-Treme Power Boost",
+    price: 29.99,
+    brand: "Avalox",
+    category: "Fast Dry"
   },
   {
     name: "Violin Japanese Rectangular",
-    price: 30.99,
+    price: 33.99,
     brand: "Nittaku",
+    category: "Supah Sticky"
+  },
+  {
+    name: "REvolution 3 Glue",
+    price: 40.99,
+    brand: "REvolution 3",
+    category: "Average Sticky"
+  },
+  {
+    name: "Lucy's Glue",
+    price: 50.00,
+    brand: "ILoveLucy",
     category: "Supah Sticky"
   }
 ];
 
 var rubbers = [
   {
-    name: "Lucy's Rubber",
-    price: 50.00,
-    brand: "ILoveLucy",
-    category: "Sponge"
+    name: "Super Anti",
+    price: 23.99,
+    brand: "Butterfly",
+    category: "Black Rubber"
   },
   {
     name: "Joola Rhyzm Series",
     price: 39.95,
     brand: "Joola",
     category: "Shakehand"
+  },
+  {
+    name: "Lucy's Rubber",
+    price: 50.00,
+    brand: "ILoveLucy",
+    category: "Sponge"
   },
   {
     name: "Hurricane 3 Neo Provincial",
@@ -97,15 +103,9 @@ var rubbers = [
   },
   {
     name: "Tenzone Ultra",
-    price: 64.95,
+    price: 100.95,
     brand: "Adidas",
     category: "Red Rubber"
-  },
-  {
-    name: "Super Anti",
-    price: 23.99,
-    brand: "Butterfly",
-    category: "Black Rubber"
   },
   {
     name: "Milky Way Sun",
