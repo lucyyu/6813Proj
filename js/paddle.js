@@ -276,5 +276,8 @@ $(function(){
   $( "#glue-amount" ).val( "$" + $( "#glue-slider-range" ).slider( "values", 0 ) +
     " - $" + $( "#glue-slider-range" ).slider( "values", 1 ) );
 
-  Paddle.predefine_paddle();
+  $( "#submitRecBtn" ).click(function(){
+    Paddle.predefine_paddle();
+  });
+  
 });
