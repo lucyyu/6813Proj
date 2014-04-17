@@ -74,10 +74,21 @@ var paddle = function () {
 
       div.click(function(){
         my_blade = blade;
-        $('#blade-summary').html(blade.name + "<br />$" + blade.price + "<br />" + blade.brand + "<br />" + blade.category + '<button type="button" id="blade-close">Close</button>');
+        $('#blade-summary').html('' + blade.name + '<br />$' + blade.price + "<br />Brand: " + blade.brand + "<br />Category: " + blade.category + '<div id="blade-close" class="closebtn">X</div>');
         $('#blade-summary').animate({
-            width: 190
-        }, 'fast');        
+            width: 210
+        }, 'fast');  
+
+        $("#blade-close").click( function() {
+          $('#blade-summary').html("");
+          $('#blade-summary').animate({
+            width: 10
+          }, 'fast');
+          Paddle.remove_blade();
+          Paddle.recalculate_price();
+          paintCanvas();
+          return false; 
+        });
 
         that.recalculate_price();
         paintCanvas(); 
@@ -91,10 +102,21 @@ var paddle = function () {
       
       div.click(function(){
         my_glue = glue;
-        $('#glue-summary').html(glue.name + "<br />$" + glue.price + "<br />" + glue.brand + "<br />" + glue.category + '<button type="button" id="glue-close">Close</button>');
+        $('#glue-summary').html(glue.name + "<br />$" + glue.price + "<br />Brand: " + glue.brand + "<br />Category: " + glue.category + '<div id="glue-close" class="closebtn">X</div>');
         $('#glue-summary').animate({
-            width: 190
+            width: 210
         }, 'fast');
+
+        $("#glue-close").click( function() {
+          $('#glue-summary').html("");
+          $('#glue-summary').animate({
+            width: 10
+          }, 'fast');
+          Paddle.remove_glue();
+          Paddle.recalculate_price();
+          paintCanvas();
+          return false; 
+        });
 
         that.recalculate_price();
         paintCanvas(); 
@@ -108,10 +130,21 @@ var paddle = function () {
 
       div.click(function(){
         my_rubber = rubber;
-        $('#rubber-summary').html(rubber.name + "<br />$" + rubber.price + "<br />" + rubber.brand + "<br />" + rubber.category + '<button type="button" id="rubber-close">Close</button>');
+        $('#rubber-summary').html(rubber.name + "<br />$" + rubber.price + "<br />Brand: " + rubber.brand + "<br />Category: " + rubber.category + '<div id="rubber-close" class="closebtn">X</div>');
         $('#rubber-summary').animate({
-            width: 190
-        }, 'fast');        
+            width: 210
+        }, 'fast');    
+
+        $("#rubber-close").click( function() {
+          $('#rubber-summary').html("");
+          $('#rubber-summary').animate({
+            width: 10
+          }, 'fast');
+          Paddle.remove_rubber();
+          Paddle.recalculate_price();
+          paintCanvas();
+          return false; 
+        });    
 
         that.recalculate_price();
         paintCanvas(); 
@@ -158,38 +191,6 @@ $(function(){
   Paddle = new paddle();
   Paddle.initialize_view();
 
-  $(document).on('click', '#blade-close', function(){
-    $('#blade-summary').html("");
-    $('#blade-summary').animate({
-            width: 10
-        }, 'fast');
-    Paddle.remove_blade();
-    Paddle.recalculate_price();
-    paintCanvas();
-    return false; 
-  });
-
-  $(document).on('click', '#rubber-close', function(){
-    $('#rubber-summary').html("");
-    $('#rubber-summary').animate({
-            width: 10
-        }, 'fast');
-    Paddle.remove_rubber();
-    Paddle.recalculate_price();
-    paintCanvas(); 
-    return false;
-  });
-
-  $(document).on('click', '#glue-close', function(){
-    $('#glue-summary').html("");
-    $('#glue-summary').animate({
-            width: 10
-        }, 'fast');
-    Paddle.remove_glue();
-    Paddle.recalculate_price();
-    paintCanvas(); 
-    return false;
-  });
 
   //rubber
   $( "#rubber-slider-range" ).slider({
