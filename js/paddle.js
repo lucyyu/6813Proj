@@ -28,10 +28,28 @@ var paddle = function () {
       from_to(0, a.length-1, function (i) {f(a[i]);});
   };
 
+  //////////////////////////////////////////////////
+  //public method
+  //////////////////////////////////////////////////
+
+  var that = {};
+
+  that.remove_blade = function() {
+    my_blade = null;
+  };
+
+  that.remove_rubber = function() {
+    my_rubber = null;
+  };
+
+  that.remove_glue = function() {
+    my_glue = null;
+  };
+
   /*
   * recalculate the total price of all the components, and then update the view.
   */
-  var recalculate_price = function() {
+  that.recalculate_price = function() {
     var price = 0;
     if (my_blade) {
       price = price + my_blade.price;
@@ -43,13 +61,7 @@ var paddle = function () {
       price = price + my_glue.price;
     }
     $('#total-price').text(price);
-  }
-
-  //////////////////////////////////////////////////
-  //public method
-  //////////////////////////////////////////////////
-
-  var that = {};
+  };
 
   /*
   * initialize the view, add all the items in the item list
@@ -62,12 +74,12 @@ var paddle = function () {
 
       div.click(function(){
         my_blade = blade;
-        $('#blade-summary').html(blade.name + "<br />$" + blade.price + "<br />" + blade.brand + "<br />" + blade.category);
+        $('#blade-summary').html(blade.name + "<br />$" + blade.price + "<br />" + blade.brand + "<br />" + blade.category + '<button type="button" id="blade-close">Close</button>');
         $('#blade-summary').animate({
             width: 190
         }, 'fast');        
 
-        recalculate_price();
+        that.recalculate_price();
         paintCanvas(); 
       });
     });
@@ -79,12 +91,12 @@ var paddle = function () {
       
       div.click(function(){
         my_glue = glue;
-        $('#glue-summary').html(glue.name + "<br />$" + glue.price + "<br />" + glue.brand + "<br />" + glue.category);
+        $('#glue-summary').html(glue.name + "<br />$" + glue.price + "<br />" + glue.brand + "<br />" + glue.category + '<button type="button" id="glue-close">Close</button>');
         $('#glue-summary').animate({
             width: 190
         }, 'fast');
 
-        recalculate_price();
+        that.recalculate_price();
         paintCanvas(); 
       });
     });
@@ -96,12 +108,12 @@ var paddle = function () {
 
       div.click(function(){
         my_rubber = rubber;
-        $('#rubber-summary').html(rubber.name + "<br />$" + rubber.price + "<br />" + rubber.brand + "<br />" + rubber.category);
+        $('#rubber-summary').html(rubber.name + "<br />$" + rubber.price + "<br />" + rubber.brand + "<br />" + rubber.category + '<button type="button" id="rubber-close">Close</button>');
         $('#rubber-summary').animate({
             width: 190
         }, 'fast');        
 
-        recalculate_price();
+        that.recalculate_price();
         paintCanvas(); 
       });
     });
@@ -145,6 +157,39 @@ var paddle = function () {
 $(function(){
   Paddle = new paddle();
   Paddle.initialize_view();
+
+  $(document).on('click', '#blade-close', function(){
+    $('#blade-summary').html("");
+    $('#blade-summary').animate({
+            width: 10
+        }, 'fast');
+    Paddle.remove_blade();
+    Paddle.recalculate_price();
+    paintCanvas();
+    return false; 
+  });
+
+  $(document).on('click', '#rubber-close', function(){
+    $('#rubber-summary').html("");
+    $('#rubber-summary').animate({
+            width: 10
+        }, 'fast');
+    Paddle.remove_rubber();
+    Paddle.recalculate_price();
+    paintCanvas(); 
+    return false;
+  });
+
+  $(document).on('click', '#glue-close', function(){
+    $('#glue-summary').html("");
+    $('#glue-summary').animate({
+            width: 10
+        }, 'fast');
+    Paddle.remove_glue();
+    Paddle.recalculate_price();
+    paintCanvas(); 
+    return false;
+  });
 
   //rubber
   $( "#rubber-slider-range" ).slider({

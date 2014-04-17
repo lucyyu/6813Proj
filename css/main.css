@@ -59,9 +59,19 @@ body{
 	border:0px #87AFC7 solid;
 }
 
-#opponentCanvas {
-	border:1px black solid;
+/*
+
+#opponentInfo {
+	font-size: 18px;
+	font-family: 'Lato', sans-serif;
+	position:absolute;
+	bottom: -150px;
 }
+
+#opponentInfo .opponentEntry {
+	font-size: 12px;
+}
+*/
 
 
 /* Products */
