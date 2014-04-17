@@ -4,6 +4,7 @@
 		<title>Index</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/main.css">
+		<link rel='stylesheet' href='css/jquery-ui-1.10.4.custom.min.css'>
 
 		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
@@ -11,7 +12,6 @@
 		<script type="text/javascript" src="js/data.js"></script>
 		<script type="text/javascript" src="js/paddle.js"></script>
 		<script type="text/javascript" src="js/canvas.js"></script>
-
 
 		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
@@ -46,7 +46,7 @@
 				  	</div>
 
 				  	<div id="priceLabel">
-				  		Total: $<span id="total-price">0</span>
+				  		TOTAL: $<span id="total-price">0</span>
 				  	</div>
 			  	</div>
 			</div>
@@ -59,8 +59,14 @@
 		      <div class="modal-header">
 		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title">Blade</h4>
+		        <p>
+							<label for="amount">Price range:</label>
+							<input type="text" id="blade-amount" style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
+		      	<div class="slider-range" id="blade-slider-range"></div>
 		      </div>
 		      <div class="modal-body" id="blade-modal-body">	
+		      	
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -72,8 +78,14 @@
 		      <div class="modal-header">
 		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title">Rubber</h4>
+		        <p>
+							<label for="amount">Price range:</label>
+							<input type="text" id="rubber-amount" style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
+		      	<div class="slider-range" id="rubber-slider-range"></div>  
 		      </div>
-		      <div class="modal-body" id="rubber-modal-body">		      	
+		      <div class="modal-body" id="rubber-modal-body">		
+			          	
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -85,8 +97,14 @@
 		      <div class="modal-header">
 		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title">Glue</h4>
+		        <p>
+							<label for="amount">Price range:</label>
+							<input type="text" id="glue-amount" style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
+		      	<div class="slider-range" id="glue-slider-range"></div>
 		      </div>
-		      <div class="modal-body" id="glue-modal-body">	      	
+		      <div class="modal-body" id="glue-modal-body">	
+		      	       	
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
