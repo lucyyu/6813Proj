@@ -64,6 +64,74 @@ var paddle = function () {
   };
 
   /*
+  * fake a paddle recommendation for GR4. Will be removed
+  */
+  that.predefine_paddle = function() {
+    my_blade = blades[0];
+    my_rubber = rubbers[0];
+    my_glue = glues[0];
+    that.add_blade_summary(my_blade);
+    that.add_glue_summary(my_glue);
+    that.add_rubber_summary(my_rubber);
+    that.recalculate_price();
+    paintCanvas();
+  };
+
+  that.add_blade_summary = function (blade) {
+    $('#blade-summary').html('' + blade.name + '<br />$' + blade.price + "<br />Brand: " + blade.brand + "<br />Category: " + blade.category + '<div id="blade-close" class="closebtn">X</div>');
+    $('#blade-summary').animate({
+        width: 210
+    }, 'fast');  
+
+    $("#blade-close").click( function() {
+      $('#blade-summary').html("");
+      $('#blade-summary').animate({
+        width: 15
+      }, 'fast');
+      that.remove_blade();
+      that.recalculate_price();
+      paintCanvas();
+      return false; 
+    });
+  }
+
+  that.add_glue_summary = function (glue) {
+    $('#glue-summary').html(glue.name + "<br />$" + glue.price + "<br />Brand: " + glue.brand + "<br />Category: " + glue.category + '<div id="glue-close" class="closebtn">X</div>');
+    $('#glue-summary').animate({
+        width: 210
+    }, 'fast');
+
+    $("#glue-close").click( function() {
+      $('#glue-summary').html("");
+      $('#glue-summary').animate({
+        width: 15
+      }, 'fast');
+      that.remove_glue();
+      that.recalculate_price();
+      paintCanvas();
+      return false; 
+    });
+  }
+
+  that.add_rubber_summary = function (rubber) {
+    $('#rubber-summary').html(rubber.name + "<br />$" + rubber.price + "<br />Brand: " + rubber.brand + "<br />Category: " + rubber.category + '<div id="rubber-close" class="closebtn">X</div>');
+    $('#rubber-summary').animate({
+        width: 210
+    }, 'fast');    
+
+    $("#rubber-close").click( function() {
+      $('#rubber-summary').html("");
+      $('#rubber-summary').animate({
+        width: 15
+      }, 'fast');
+      that.remove_rubber();
+      that.recalculate_price();
+      paintCanvas();
+      return false; 
+    });
+  }
+
+  /*
   * initialize the view, add all the items in the item list
   */
   that.initialize_view = function(){
@@ -74,22 +142,7 @@ var paddle = function () {
 
       div.click(function(){
         my_blade = blade;
-        $('#blade-summary').html('' + blade.name + '<br />$' + blade.price + "<br />Brand: " + blade.brand + "<br />Category: " + blade.category + '<div id="blade-close" class="closebtn">X</div>');
-        $('#blade-summary').animate({
-            width: 210
-        }, 'fast');  
-
-        $("#blade-close").click( function() {
-          $('#blade-summary').html("");
-          $('#blade-summary').animate({
-            width: 15
-          }, 'fast');
-          Paddle.remove_blade();
-          Paddle.recalculate_price();
-          paintCanvas();
-          return false; 
-        });
-
+        that.add_blade_summary(blade);
         that.recalculate_price();
         paintCanvas(); 
       });
@@ -102,22 +155,7 @@ var paddle = function () {
       
       div.click(function(){
         my_glue = glue;
-        $('#glue-summary').html(glue.name + "<br />$" + glue.price + "<br />Brand: " + glue.brand + "<br />Category: " + glue.category + '<div id="glue-close" class="closebtn">X</div>');
-        $('#glue-summary').animate({
-            width: 210
-        }, 'fast');
-
-        $("#glue-close").click( function() {
-          $('#glue-summary').html("");
-          $('#glue-summary').animate({
-            width: 15
-          }, 'fast');
-          Paddle.remove_glue();
-          Paddle.recalculate_price();
-          paintCanvas();
-          return false; 
-        });
-
+        that.add_glue_summary(glue);
         that.recalculate_price();
         paintCanvas(); 
       });
@@ -130,22 +168,7 @@ var paddle = function () {
 
       div.click(function(){
         my_rubber = rubber;
-        $('#rubber-summary').html(rubber.name + "<br />$" + rubber.price + "<br />Brand: " + rubber.brand + "<br />Category: " + rubber.category + '<div id="rubber-close" class="closebtn">X</div>');
-        $('#rubber-summary').animate({
-            width: 210
-        }, 'fast');    
-
-        $("#rubber-close").click( function() {
-          $('#rubber-summary').html("");
-          $('#rubber-summary').animate({
-            width: 15
-          }, 'fast');
-          Paddle.remove_rubber();
-          Paddle.recalculate_price();
-          paintCanvas();
-          return false; 
-        });    
-
+        that.add_rubber_summary(rubber);
         that.recalculate_price();
         paintCanvas(); 
       });
@@ -252,4 +275,6 @@ $(function(){
 
   $( "#glue-amount" ).val( "$" + $( "#glue-slider-range" ).slider( "values", 0 ) +
     " - $" + $( "#glue-slider-range" ).slider( "values", 1 ) );
+
+  Paddle.predefine_paddle();
 });
