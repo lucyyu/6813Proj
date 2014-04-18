@@ -140,19 +140,12 @@ form{
 	border:0px #87AFC7 solid;
 }
 
-/*
-
-#opponentInfo {
-	font-size: 18px;
-	font-family: 'Lato', sans-serif;
+/* Opponent Button */
+.checkOpponentInfo {
 	position:absolute;
-	bottom: -150px;
+	visibility: hidden;
+	z-index: 100;
 }
-
-#opponentInfo .opponentEntry {
-	font-size: 12px;
-}
-*/
 
 
 /* Products */
