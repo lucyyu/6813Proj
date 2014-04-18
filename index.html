@@ -24,11 +24,18 @@
 		<div class="bodydiv">
 			<div class="content">
 			  	<div class="paddlecontainer">
+
+					<div class="alert">  
+					  Complete a paddle to see its stats!
+					  <div class="alertclose" data-dismiss="alert">×</div>  
+
+					</div> 
+
 			  		<canvas id="paddleCanvas" width="450" height="450">
                     Your browser does not support the HTML5 canvas tag.</canvas>
                     <canvas id="diamondCanvas" width="280" height="200">
                     Your browser does not support the HTML5 canvas tag.</canvas>
-    		        <button type="button" class="checkOpponentInfo">Opponent Info</button>
+    		        <div class="checkOpponentInfo" id="seeInfoBtn" data-toggle="modal" data-target="#info-modal">See Paddle Info</div>
 			  	</div>
 			  	<div class="buttoncontainer">
 
@@ -99,6 +106,27 @@
 				    </td>
 				  </tr>
 				</table>
+
+	       	
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+
+
+				<div class="modal fade" id="info-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">Paddle Evaluation:</h4>
+		      </div>
+		      <div class="modal-body" id="info-modal-body">	
+		      
+		      Your paddle is average.  You weren't planning on winning any games, were you? Consider spending more money!
+		      <br /><br /><br />
+		      <img src="img/table.png" width=500></img>
 
 	       	
 		      </div>

@@ -118,6 +118,7 @@ function paintCanvas(){
         context_d.restore();     
 
         //show opponent button
+        $(".alert").remove();
         $(".checkOpponentInfo").css("visibility","visible");  
 
     }		        
