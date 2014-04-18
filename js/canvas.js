@@ -55,13 +55,16 @@ function paintCanvas(){
     	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450); 
     });   
 
+    $(".checkOpponentInfo").css("visibility","hidden");
+
 
 
     drawPerformanceDiamondBackground(false); 
 
     //draw real-time performance parameters based on user selection
     if ($("#blade-summary").text() && $("#rubber-summary").text() && $("#glue-summary").text()){
-        //TODO: change params based on price
+
+        //change params based on price
         var current_price = parseInt($("#total-price").text());
         console.log(current_price); 
         if (current_price < 100){
@@ -112,7 +115,10 @@ function paintCanvas(){
 
         	context_d.fill();  
         }	
-        context_d.restore();      
+        context_d.restore();     
+
+        //show opponent button
+        $(".checkOpponentInfo").css("visibility","visible");  
 
     }		        
 }
