@@ -63,12 +63,45 @@ h3{
 	background-color: #86bbde;
 }
 
+table {
+	font-family: 'Lato', sans-serif;
+	width: 100%;
+}
+
+td{
+	padding:20px;
+}
+
+.q{
+	font-weight: 700;
+	font-size:1.3em;
+	color:#404040;
+}
+
+form{
+	font-weight: 500;
+	font-size:1.1em;
+	color: #5e5e5e;
+}
+
+#rec-modal-body{
+	padding:0px 40px;
+}
+
 #submitRecBtn{
 	background-color:#27ae60;
 	color: #8fe4b3;
 	font-size: 14px;
-	padding: 7px 10px;
+	text-align:center;
+	padding-top:7px;
+	padding-bottom:7px;
+	width:70px;
 	border-radius: 3px;
+}
+
+#submitRecBtn:hover{
+	cursor:pointer;
+	background-color: #229f57;
 }
 
 .content{
