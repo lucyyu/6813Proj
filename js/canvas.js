@@ -195,7 +195,7 @@ function drawTextLabel(canvas, parameters, colors, isAllComponentSelected){
 
             //price label
             context_d.fillStyle = colors.price;
-            context_d.fillText("Price: 0", 83, -20); 
+            context_d.fillText("Affordability: 0", 77, -20); 
 
         } else {
             //speed
@@ -227,7 +227,7 @@ function drawTextLabel(canvas, parameters, colors, isAllComponentSelected){
             var price_val = parameters.price;
             var price_text = ""+(price_val>=0.75?"high":"medium");
             context_d.fillStyle = colors.price;
-            context_d.fillText("Price: ", 83, -20);
+            context_d.fillText("Affordability: ", 83, -20);
             context_d.fillText(price_text, 83, -5);       
         }
         context_d.restore(); 
