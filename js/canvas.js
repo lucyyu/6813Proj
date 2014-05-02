@@ -12,50 +12,69 @@ function paintCanvas(){
     var context_p = canvas_p.getContext("2d");
     context_p.clearRect(0, 0, canvas_p.width, canvas_p.height);
 
-    var raw_paddle_img = new Image();
-    raw_paddle_img.onload = function(){
-    	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450);
-    }
-    raw_paddle_img.src = "img/paddle.png"; 
+    var raw_paddle_img = document.getElementById("paddle_raw");
+    context_p.drawImage(raw_paddle_img, 0, 0, 450, 450);
+
+    var core_img = document.getElementById("paddle_core");
+    var blade_img = document.getElementById("paddle_blade");
+    var glue_img = document.getElementById("paddle_glue");
 
     //highting the component upon hovering 
     $("#rubberBtn").mouseenter(function(){
     	//NOTE: http://stackoverflow.com/questions/12387310/html5-drawimage-works-in-firefox-not-chrome
     	//looks like this is recommendated drawImage() method that would work in both Chrome and Firefox
-        var core_img = new Image();
-        core_img.src = "img/core_highlight_bw.png"; 
-        core_img.onload = function(){
+        if (!$("#rubber-summary").text()){
             context_p.drawImage(core_img, 60, -30, 423, 400);
         }
     }).mouseleave(function(){
-    	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
-    	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450); 
+        if (!$("#rubber-summary").text()){
+        	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
+        	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450); 
+            updatePaddleCanvas();
+        }
     });
 
     $("#bladeBtn").mouseenter(function(){
-        var blade_img = new Image();
-        blade_img.src = "img/blade_highlight_bw.png"; 
-        blade_img.onload = function() {
+        if (!$("#blade-summary").text()){
             context_p.drawImage(blade_img, 13, 15, 435, 435);
         }
     }).mouseleave(function(){
-    	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
-    	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450); 
+        if (!$("#blade-summary").text()){
+        	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
+        	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450); 
+            updatePaddleCanvas();
+        }
     });
 
     $("#glueBtn").mouseenter(function(){
-        var glue_img = new Image();
-        glue_img.src = "img/glue_highlight_bw.png"; 
-        glue_img.onload = function() {
+        if (!$("#glue-summary").text()){
             context_p.drawImage(glue_img, 50, -53, 435, 435);
         }
-
     }).mouseleave(function(){
-    	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
-    	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450); 
+        if (!$("#glue-summary").text()){
+        	context_p.clearRect(0, 0, canvas_p.width, canvas_p.height); 
+        	context_p.drawImage(raw_paddle_img, 0, 0, 450, 450); 
+            updatePaddleCanvas();
+        }
     });   
 
-    $(".checkOpponentInfo").css("visibility","hidden");
+    updatePaddleCanvas();
+
+    
+    function updatePaddleCanvas(){
+        if ($("#rubber-summary").text()){// rubber component selected, make highlight persistent
+            context_p.drawImage(core_img, 60, -30, 423, 400);
+            console.log("rubber");
+        }
+        if ($("#blade-summary").text()){// blade component selected, make highlight persistent
+            context_p.drawImage(blade_img, 13, 15, 435, 435);
+            console.log("blade");
+        }
+        if ($("#glue-summary").text()){// glue component selected, make highlight persistent
+            context_p.drawImage(glue_img, 50, -53, 435, 435);
+            console.log("glue");
+        }
+    }
 
 
 
@@ -66,7 +85,6 @@ function paintCanvas(){
 
         //change params based on price
         var current_price = parseInt($("#total-price").text());
-        console.log(current_price); 
         if (current_price < 100){
             params = {speed:0.65, spin:0.65, control:0.7, weight:0.5, price:0.5}; 
         }else if (current_price >= 100 && current_price < 133){
@@ -107,14 +125,14 @@ function paintCanvas(){
         context_d.fill(); 
 
         //stroke 5 pins
-        for (var i=0; i<pin_pts.length; i++){
-        	context_d.beginPath();
-        	context_d.arc(pin_pts[i][0], pin_pts[i][1], radius/25, 0, Math.PI*2, false);
-        	//context_d.fillStyle = variable_colors[Object.keys(variable_colors)[i]];
-            context_d.fillStyle = "#cc9000";
+        // for (var i=0; i<pin_pts.length; i++){
+        // 	context_d.beginPath();
+        // 	context_d.arc(pin_pts[i][0], pin_pts[i][1], radius/25, 0, Math.PI*2, false);
+        // 	//context_d.fillStyle = variable_colors[Object.keys(variable_colors)[i]];
+        //     context_d.fillStyle = "#cc9000";
 
-        	context_d.fill();  
-        }	
+        // 	context_d.fill();  
+        // }	
         context_d.restore();     
 
         //show opponent button
