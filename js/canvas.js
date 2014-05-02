@@ -58,6 +58,9 @@ function paintCanvas(){
         }
     });   
 
+    $(".alert").css("visibility","visible");
+    $(".checkOpponentInfo").css("visibility","hidden");
+
     updatePaddleCanvas();
 
     
@@ -136,9 +139,8 @@ function paintCanvas(){
         context_d.restore();     
 
         //show opponent button
-        $(".alert").remove();
-        $(".checkOpponentInfo").css("visibility","visible");  
-
+        $(".alert").css("visibility","hidden");
+        $(".checkOpponentInfo").css("visibility","visible");
     }		        
 }
 
