@@ -19,22 +19,29 @@
 
 	</head>
 	<body>
-		<div class="header">TABLE TENNIS PRO</div>
+		<div class="header"><span class="title">TABLE TENNIS PRO</span><div class="recwrapper"><div class="recs" id="recsBtn" data-toggle="modal" data-target="#rec-modal">Get a recommendation!</div></div></div>
 
 		<div class="bodydiv">
 			<div class="content">
 			  	<div class="paddlecontainer">
+
+					<div class="alert">  
+					  Complete a paddle to see its stats!
+					  <div class="alertclose" data-dismiss="alert">×</div>  
+
+					</div> 
+
 			  		<canvas id="paddleCanvas" width="450" height="450">
                     Your browser does not support the HTML5 canvas tag.</canvas>
-                    <canvas id="diamondCanvas" width="280" height="200">
+                    <canvas id="diamondCanvas" width="310" height="200">
                     Your browser does not support the HTML5 canvas tag.</canvas>
-                    <div id="opponentInfo"></div>
+    		        <div class="checkOpponentInfo" id="seeInfoBtn" data-toggle="modal" data-target="#info-modal">See Paddle Info</div>
 			  	</div>
 			  	<div class="buttoncontainer">
 
 			  		<div class="btnWrap">
 			  			<div class="productBtn" id="bladeBtn" data-toggle="modal" data-target="#blade-modal">BLADE</div>
-			  			<div id="blade-summary" class="summary"></div>
+			  			<div id="blade-summary" class="summary v-zigzag"></div>
 			  		</div>
 
 			  		<div class="btnWrap">
@@ -56,6 +63,80 @@
 		</div>
 
 
+
+
+		<div class="modal fade" id="rec-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">Take our quiz:</h4>
+		      </div>
+		      <div class="modal-body" id="rec-modal-body">	
+		      
+				<table>
+				  <tr>
+				    <td class="q">What is your playing style?</td>
+				    <td class="a"><form><input type="radio" name="playstyle"> &nbsp; Front (aggressive)<br><input type="radio" name="playstyle"> &nbsp; Middle (all-court)<br><input type="radio" name="playstyle"> &nbsp; Back (defensive)
+				    	</form>
+				    </td>
+				  </tr>
+				  <tr>
+				    <td class="q">What is your paddle grip?</td>
+				    <td class="a">
+<form><input type="radio" name="grip"> &nbsp; Shakehand Shallow<br><input type="radio" name="grip"> &nbsp; Shakehand Deep<br><input type="radio" name="grip"> &nbsp; Penhold
+				    	</form>
+
+				    </td>
+				  </tr>
+				  <tr>
+				    <td class="q">Do you even slice?</td>
+				    <td class="a">
+<form><input type="radio" name="slice"> &nbsp; Yes<br><input type="radio" name="slice"> &nbsp; Maybe<br><input type="radio" name="slice"> &nbsp; No
+				    	</form>
+				    </td>
+				  </tr>
+
+				  				  <tr>
+				    <td></td>
+				    <td>
+
+		      		<div id="submitRecBtn" data-dismiss="modal" class="pull-right">Submit</div>
+				    	</form>
+				    </td>
+				  </tr>
+				</table>
+
+	       	
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+
+
+				<div class="modal fade" id="info-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">Paddle Evaluation:</h4>
+		      </div>
+		      <div class="modal-body" id="info-modal-body">	
+		      
+		      Your paddle is average.  You weren't planning on winning any games, were you? Consider spending more money!
+		      <br /><br /><br />
+		      <img src="img/table.png" width=500></img>
+
+	       	
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+
+
+
 		<div class="modal fade" id="blade-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -69,7 +150,9 @@
 		      	<div class="slider-range" id="blade-slider-range"></div>
 		      </div>
 		      <div class="modal-body" id="blade-modal-body">	
-		      	
+		      	<div class="no-item-warning" id="blade-warning">
+		      		Sorry, there is no item available in this price range.
+		      	</div> 	
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -88,7 +171,9 @@
 		      	<div class="slider-range" id="rubber-slider-range"></div>  
 		      </div>
 		      <div class="modal-body" id="rubber-modal-body">		
-			          	
+			      <div class="no-item-warning" id="rubber-warning">
+		      		Sorry, there is no item available in this price range.
+		      	</div> 	 	
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -107,11 +192,20 @@
 		      	<div class="slider-range" id="glue-slider-range"></div>
 		      </div>
 		      <div class="modal-body" id="glue-modal-body">	
-		      	       	
+		      	<div class="no-item-warning" id="glue-warning">
+		      		Sorry, there is no item available in this price range.
+		      	</div> 	
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
+
+		<!-- four hidden images -->
+		<img id="paddle_raw" src='./img/paddle.png' style="visibility:hidden; position:absolute">
+		<img id="paddle_core" src='./img/core_highlight_bw.png' style="visibility:hidden; position:absolute">
+		<img id="paddle_blade" src='./img/blade_highlight_bw.png' style="visibility:hidden; position:absolute">
+		<img id="paddle_glue" src='./img/glue_highlight_bw.png' style="visibility:hidden; position:absolute"> 
+
 
 	</body>
 </html>
