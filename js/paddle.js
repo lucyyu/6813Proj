@@ -176,33 +176,54 @@ var paddle = function () {
   };
 
   that.rubber_price_query = function( start_price, end_price ){
+    var has_result = false;
     each(rubber_div_list, function(pair){
       if (pair.obj.price >= start_price && pair.obj.price <= end_price) {
         pair.div.css("display", "block");
+        has_result = true;
       } else {
         pair.div.css("display", "none");
       }
     });
+    if (has_result) {
+      $("#rubber-warning").css("display", "none");
+    } else {
+      $("#rubber-warning").css("display", "block");
+    }
   };
 
   that.blade_price_query = function( start_price, end_price ){
+    var has_result = false;
     each(blade_div_list, function(pair){
       if (pair.obj.price >= start_price && pair.obj.price <= end_price) {
         pair.div.css("display", "block");
+        has_result = true;
       } else {
         pair.div.css("display", "none");
       }
     });
+    if (has_result) {
+      $("#blade-warning").css("display", "none");
+    } else {
+      $("#blade-warning").css("display", "block");
+    }
   };
 
   that.glue_price_query = function( start_price, end_price ){
+    var has_result = false;
     each(glue_div_list, function(pair){
       if (pair.obj.price >= start_price && pair.obj.price <= end_price) {
         pair.div.css("display", "block");
+        has_result = true;
       } else {
         pair.div.css("display", "none");
       }
     });
+    if (has_result) {
+      $("#glue-warning").css("display", "none");
+    } else {
+      $("#glue-warning").css("display", "block");
+    }
   };
 
   Object.freeze(that);
@@ -224,9 +245,10 @@ $(function(){
 
     values: [ 0, 200 ],
     slide: function( event, ui ) {
+      if (ui.values[1] - ui.values[0] == 0) { //to avoid the two slider to overlap
+        return false;
+      }
       $( "#rubber-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-    },
-    stop: function( event, ui ) {
       start_price = ui.values[ 0 ];
       end_price = ui.values[ 1 ];
       Paddle.rubber_price_query( start_price, end_price );
@@ -244,9 +266,10 @@ $(function(){
     step:10,
     values: [ 0, 200 ],
     slide: function( event, ui ) {
+      if (ui.values[1] - ui.values[0] == 0) { //to avoid the two slider to overlap
+        return false;
+      }
       $( "#blade-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-    },
-    stop: function( event, ui ) {
       start_price = ui.values[ 0 ];
       end_price = ui.values[ 1 ];
       Paddle.blade_price_query( start_price, end_price );
@@ -261,12 +284,13 @@ $(function(){
     range: true,
     min: 0,
     max: 60,
-    step:10,
+    step: 5,
     values: [ 0, 60 ],
     slide: function( event, ui ) {
+      if (ui.values[1] - ui.values[0] == 0) { //to avoid the two slider to overlap
+        return false;
+      }
       $( "#glue-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-    },
-    stop: function( event, ui ) {
       start_price = ui.values[ 0 ];
       end_price = ui.values[ 1 ];
       Paddle.glue_price_query( start_price, end_price );

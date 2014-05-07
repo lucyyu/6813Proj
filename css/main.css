@@ -255,7 +255,7 @@ form{
     background-repeat: repeat-y;
     background-size: 10px 10px;
 	background-color: #FAFAFA;
-	color: #878787;
+/*	color: #878787;*/
 	z-index:-1;
 	/*
 	-webkit-box-shadow: 2px 2px 1px rgba(0,0,0,.05);
@@ -334,6 +334,21 @@ form{
 	background-color: #f7f7f7;
 }
 
+.modal-body .no-item-warning{
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	color: #D8000C;
+	background-color: #FFBABA;
+	border: 1px solid;
+	border-radius: 4px;
+	height: 80px;
+	width: 60%;
+	text-align: center;
+	display: none;
+}
+
 .modal-body .item {
 	height: 120px;
 	border-bottom: 1px solid #e1e1e1;
@@ -341,7 +356,7 @@ form{
 	cursor: pointer;
 	font-family: 'Lato', sans-serif;
 	font-weight:300;
-	color: #737373;
+/*	color: #737373;*/
 }
 
 .modal-body .item:hover {
