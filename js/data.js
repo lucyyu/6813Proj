@@ -1,3 +1,34 @@
+var pros = [
+{
+  name: "Zhang Jike",
+  img: "img/pros/zhangjike.jpg"
+},
+{
+  name: "Ding Ning",
+  img: "img/pros/ding_ning.jpg"
+},
+{
+  name: "Li Xiaoxia",
+  img: "img/pros/xiaoxia.jpg"
+},
+{
+  name: "Guo Yue",
+  img:"img/pros/guoyue.jpg"
+},
+{
+  name: "Wang Hao",
+  img:"img/pros/wanghao.jpg"
+},
+{
+  name: "Ai Fukahara",
+  img:"img/pros/aifukahara.jpg"
+},
+{
+  name: "Ma Long",
+  img:"img/pros/malong.jpg"
+}
+]
+
 var msgs = [
 {
   text: "Your paddle is well-rounded. It is good for club players and casual players.",

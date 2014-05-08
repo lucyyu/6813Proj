@@ -173,6 +173,20 @@ var paddle = function () {
         paintCanvas(); 
       });
     });
+
+
+    each(pros, function(pro) {
+      var wrap = $("<div>", {class:"carouselwrap"});
+      var div = $("<div>", {class: "carouselbox", style: "background-image: url("+pro.img+");"});
+      wrap.append(div);
+      var name = $("<div>", {class: "proname", text: pro.name});
+      wrap.append(name);
+      $("#owl-example").append(wrap);
+
+      wrap.click(function() {
+        $("#pro-comments").html("This person chose #ITEM, and #ITEM, and #ITEM");
+      })
+    });
   };
 
   that.rubber_price_query = function( start_price, end_price ){

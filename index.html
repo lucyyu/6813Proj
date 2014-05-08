@@ -14,12 +14,35 @@
 		<script type="text/javascript" src="js/paddle.js"></script>
 		<script type="text/javascript" src="js/canvas.js"></script>
 
+
+		<!-- Important Owl stylesheet -->
+		<link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+		 
+		<!-- Default Theme -->
+		<link rel="stylesheet" href="owl-carousel/owl.theme.css">
+		 
+		<!-- Include js plugin -->
+		<script src="owl-carousel/owl.carousel.js"></script>
+
+
 		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
 	</head>
 	<body>
-		<div class="header"><span class="title">TABLE TENNIS PRO</span><div class="recwrapper"><div class="recs" id="recsBtn" data-toggle="modal" data-target="#rec-modal">Get a recommendation!</div></div></div>
+		<div class="header">
+			<div class="title">TABLE TENNIS PRO</div>
+			<div class="navbutton">
+				<div class="recs" id="recsBtn" data-toggle="modal" data-target="#rec-modal">
+					Get a recommendation
+				</div>
+			</div>
+			<div class="navbutton">
+				<div class="recs" id="proBtn" data-toggle="modal" data-target="#pro-modal">
+					Choose from a pro
+				</div>
+			</div>
+		</div>
 
 		<div class="bodydiv">
 			<div class="content">
@@ -115,7 +138,37 @@
 
 
 
-				<div class="modal fade" id="info-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="pro-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">Choose from a pro:</h4>
+		      </div>
+		      <div class="modal-body" id="pro-modal-body" style="padding-top:10px">	
+		      
+				<div id="owl-example" class="owl-carousel">
+
+				</div>
+
+				<div id="pro-comments">
+				</div>
+
+	       	
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+	       	
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+
+
+		<div class="modal fade" id="info-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -207,5 +260,12 @@
 		<img id="paddle_glue" src='./img/glue_highlight_bw.png' style="visibility:hidden; position:absolute"> 
 
 
+		<script>
+		$(document).ready(function() {
+ 
+  $("#owl-example").owlCarousel({items : 3});
+ 
+});
+		</script>
 	</body>
 </html>

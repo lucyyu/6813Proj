@@ -23,29 +23,48 @@ h3{
 	position:relative;
 	width: 100%;
 	margin-bottom:40px;
-	padding-top:5px;
-	padding-bottom:5px;
-	text-align: center;
 	background-color: #3498DB;
+	overflow: auto;
 }
 
 .title{
 	font-family: 'Lato', sans-serif;
-	letter-spacing: 3px;
+	float:left;
 	font-weight: 900;
 	text-shadow: 2px 2px #50809f;
 	color: #c2e1f5;
 	font-size:40px;
+	padding-left:50px;
 }
 
-.recwrapper{
-	position:absolute;
+.navbutton{
+	float:right;
 	height:100%;
-	top:0px;
-	padding-top:16px;
-	padding-bottom:16px;
-	display:inline-block;
+	margin:10px 20px 0px 0px;
 }
+
+.carouselwrap{
+	margin:5px;
+}
+.carouselwrap:hover{
+	cursor: pointer;
+}
+.carouselbox{
+	width:100%;
+	height:130px;
+	background-size: cover;
+}
+
+.proname{
+	padding:5px;
+	background-color: #252525;
+	color: #c9c9c9;
+	text-align:center;
+	font-family: 'Lato', sans-serif;
+	font-size:14px;
+	font-weight: 300;
+}
+
 .recs{
 	display:inline-block;
 	background-color: #4ba6e2;
@@ -53,9 +72,7 @@ h3{
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
 	padding: 7px 10px;
-	margin-left:40px;
 	border-radius:3px;
-	height:100%;
 	font-weight: 300;
 }
 
@@ -199,7 +216,9 @@ form{
 
 .checkOpponentInfo:hover {
 	background-color: #24a359;
+	cursor: pointer;
 }
+
 
 /* Products */
 .btnWrap{
