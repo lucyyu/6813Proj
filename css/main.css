@@ -65,6 +65,34 @@ h3{
 	font-weight: 300;
 }
 
+.proaccept{
+	color: #c7e4de;
+	float:right;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: #1ABC9C;
+	padding:7px 10px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 500;
+}
+
+.proaccept:hover{
+	background-color: #07ad8c;
+	cursor: pointer;
+}
+
+.proitem{
+	display: inline-block;
+	margin:10px;
+	width:150px;
+	padding:3px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	text-align:center;
+	background-color: #f1f1f1;
+	border: 1px solid #ababab;
+}
+
 .recs{
 	display:inline-block;
 	background-color: #4ba6e2;

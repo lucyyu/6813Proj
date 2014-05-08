@@ -184,7 +184,15 @@ var paddle = function () {
       $("#owl-example").append(wrap);
 
       wrap.click(function() {
-        $("#pro-comments").html("This person chose #ITEM, and #ITEM, and #ITEM");
+        $("#pro-comments").html("<div style='padding-left:10px;padding-right:10px;'>" +
+          "<div>" + pro.name + "'s paddle consists of: </div>" +
+          "<div style='text-align:center;margin-top:10px;margin-bottom:10px'>" + 
+            "<div class='proitem'><strong>BLADE</strong><br />test<br />$50</div>" +
+            "<div class='proitem'><strong>RUBBER</strong><br />test<br />$40</div>" +
+            "<div class='proitem'><strong>GLUE</strong><br />test<br />$10</div>" +
+          "</div>" +
+          "<div><div class='proaccept'>UPDATE PADDLE</div></div>" +
+          "</div>");
       })
     });
   };
