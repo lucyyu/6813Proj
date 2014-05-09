@@ -194,7 +194,7 @@ var paddle = function () {
           "<div><div class='proaccept' data-dismiss='modal'>UPDATE PADDLE</div></div>" +
           "</div>");
         $(".proaccept").click(function(){
-            Paddle.predefine_paddle(2, 2, 2);
+            Paddle.predefine_paddle(1, 1, 1);
           });
       })
     });
