@@ -67,15 +67,12 @@ function paintCanvas(){
     function updatePaddleCanvas(){
         if ($("#rubber-summary").text()){// rubber component selected, make highlight persistent
             context_p.drawImage(core_img, 60, -30, 423, 400);
-            console.log("rubber");
         }
         if ($("#blade-summary").text()){// blade component selected, make highlight persistent
             context_p.drawImage(blade_img, 13, 15, 435, 435);
-            console.log("blade");
         }
         if ($("#glue-summary").text()){// glue component selected, make highlight persistent
             context_p.drawImage(glue_img, 50, -53, 435, 435);
-            console.log("glue");
         }
     }
 
@@ -127,20 +124,15 @@ function paintCanvas(){
 
         context_d.fill(); 
 
-        //stroke 5 pins
-        // for (var i=0; i<pin_pts.length; i++){
-        // 	context_d.beginPath();
-        // 	context_d.arc(pin_pts[i][0], pin_pts[i][1], radius/25, 0, Math.PI*2, false);
-        // 	//context_d.fillStyle = variable_colors[Object.keys(variable_colors)[i]];
-        //     context_d.fillStyle = "#cc9000";
-
-        // 	context_d.fill();  
-        // }	
         context_d.restore();     
 
         //show opponent button
         $(".alert").css("visibility","hidden");
         $(".checkOpponentInfo").css("visibility","visible");
+
+        //update opponent information message
+        var opponent_message = msgs[current_price%msgs.length].text;  
+        $("#opponent-text").text(opponent_message);
     }		        
 }
 

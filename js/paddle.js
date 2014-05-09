@@ -64,12 +64,12 @@ var paddle = function () {
   };
 
   /*
-  * fake a paddle recommendation for GR4. Will be removed
+  * define a paddle based on product indexes; the indexes are arbitrary numbers from either recommendation dialog or favorite player dialog
   */
-  that.predefine_paddle = function() {
-    my_blade = blades[0];
-    my_rubber = rubbers[0];
-    my_glue = glues[0];
+  that.predefine_paddle = function(blade_index, rubber_index, glue_index) {
+    my_blade = blades[blade_index];
+    my_rubber = rubbers[rubber_index];
+    my_glue = glues[glue_index];
     that.add_blade_summary(my_blade);
     that.add_glue_summary(my_glue);
     that.add_rubber_summary(my_rubber);
@@ -187,12 +187,15 @@ var paddle = function () {
         $("#pro-comments").html("<div style='padding-left:10px;padding-right:10px;'>" +
           "<div>" + pro.name + "'s paddle consists of: </div>" +
           "<div style='text-align:center;margin-top:10px;margin-bottom:10px'>" + 
-            "<div class='proitem'><strong>BLADE</strong><br />test<br />$50</div>" +
-            "<div class='proitem'><strong>RUBBER</strong><br />test<br />$40</div>" +
-            "<div class='proitem'><strong>GLUE</strong><br />test<br />$10</div>" +
+            "<div class='proitem'><strong>"+blades[1].name+"</strong><br />"+blades[1].brand+"<br />$"+blades[1].price+"</div>" +
+            "<div class='proitem'><strong>"+rubbers[1].name+"</strong><br />"+rubbers[1].brand+"<br />$"+rubbers[1].price+"</div>" +
+            "<div class='proitem'><strong>"+glues[1].name+"</strong><br />"+glues[1].brand+"<br />$"+glues[1].price+"</div>" +
           "</div>" +
-          "<div><div class='proaccept'>UPDATE PADDLE</div></div>" +
+          "<div><div class='proaccept' data-dismiss='modal'>UPDATE PADDLE</div></div>" +
           "</div>");
+        $(".proaccept").click(function(){
+            Paddle.predefine_paddle(2, 2, 2);
+          });
       })
     });
   };
@@ -323,7 +326,7 @@ $(function(){
     " - $" + $( "#glue-slider-range" ).slider( "values", 1 ) );
 
   $( "#submitRecBtn" ).click(function(){
-    Paddle.predefine_paddle();
+    Paddle.predefine_paddle(1, 1, 1);
   });
   
 });
